@@ -30,6 +30,8 @@ namespace Notifaction.API
         public void ConfigureServices(IServiceCollection services)
         {
             #region dependency injection
+            services.AddDbContext<DataContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             InjectBl.StartUp(services);
             InjectDal.StartUp(services);
             #endregion

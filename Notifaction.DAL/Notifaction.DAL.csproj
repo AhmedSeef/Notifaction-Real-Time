@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Notifaction.DB\Notifaction.DB.csproj" />
+    <ProjectReference Include="..\Notifaction.Models\Notifaction.Models.csproj" />
   </ItemGroup>
 
 </Project>

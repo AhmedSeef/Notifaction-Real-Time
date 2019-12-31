@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Notifaction.DAL.contract;
 using Notifaction.DAL.contract.Base;
+using Notifaction.DAL.implemntation;
 using Notifaction.DAL.implemntation.Base;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,7 @@ namespace Notifaction.DAL.SartUp
         public static void StartUp(IServiceCollection services)
         {
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IPatientRepository, PatientRepository>();
         }
     }
 }
