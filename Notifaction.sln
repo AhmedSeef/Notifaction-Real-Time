@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifaction.API", "Notifaction.API\Notifaction.API.csproj", "{AADE601C-3D35-48D2-935E-F9A518A54C0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notifaction.API", "Notifaction.API\Notifaction.API.csproj", "{AADE601C-3D35-48D2-935E-F9A518A54C0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifaction.Models", "Notifaction.Models\Notifaction.Models.csproj", "{BD527C8E-BA28-46C0-BCC1-9D4379A52158}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notifaction.Models", "Notifaction.Models\Notifaction.Models.csproj", "{BD527C8E-BA28-46C0-BCC1-9D4379A52158}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifaction.DB", "Notifaction.DB\Notifaction.DB.csproj", "{2BDFBD87-B026-4D3A-8D44-3E970A288C78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notifaction.DB", "Notifaction.DB\Notifaction.DB.csproj", "{2BDFBD87-B026-4D3A-8D44-3E970A288C78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifaction.DAL", "Notifaction.DAL\Notifaction.DAL.csproj", "{8524A216-15A3-4D43-A968-1F547525BE0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notifaction.DAL", "Notifaction.DAL\Notifaction.DAL.csproj", "{8524A216-15A3-4D43-A968-1F547525BE0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifaction.BL", "Notifaction.BL\Notifaction.BL.csproj", "{80453D4A-DABF-41C4-BF6E-305F30AFA545}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notifaction.BL", "Notifaction.BL\Notifaction.BL.csproj", "{80453D4A-DABF-41C4-BF6E-305F30AFA545}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifaction.RealTime", "Notifaction.RealTime\Notifaction.RealTime.csproj", "{41790643-3E40-40B3-8705-F40ADB446F12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{80453D4A-DABF-41C4-BF6E-305F30AFA545}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80453D4A-DABF-41C4-BF6E-305F30AFA545}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80453D4A-DABF-41C4-BF6E-305F30AFA545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41790643-3E40-40B3-8705-F40ADB446F12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41790643-3E40-40B3-8705-F40ADB446F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41790643-3E40-40B3-8705-F40ADB446F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41790643-3E40-40B3-8705-F40ADB446F12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

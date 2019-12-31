@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Notifaction.BL.StartUp;
 using Notifaction.DAL.SartUp;
 using Notifaction.DB;
+using Notifaction.RealTime.Hubs;
 
 namespace Notifaction.API
 {
@@ -69,6 +70,7 @@ namespace Notifaction.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<notifacationHub>("/Hubs/notifacationHub");
             });
         }
     }
