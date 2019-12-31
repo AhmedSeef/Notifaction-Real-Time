@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Notifaction.BL.StartUp;
+using Notifaction.DAL.SartUp;
 using Notifaction.DB;
 
 namespace Notifaction.API
@@ -27,6 +29,11 @@ namespace Notifaction.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region dependency injection
+            InjectBl.StartUp(services);
+            InjectDal.StartUp(services);
+            #endregion
+
             services.AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
         }

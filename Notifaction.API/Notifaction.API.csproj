@@ -13,6 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Notifaction.BL\Notifaction.BL.csproj" />
+    <ProjectReference Include="..\Notifaction.DAL\Notifaction.DAL.csproj" />
     <ProjectReference Include="..\Notifaction.DB\Notifaction.DB.csproj" />
   </ItemGroup>
 
