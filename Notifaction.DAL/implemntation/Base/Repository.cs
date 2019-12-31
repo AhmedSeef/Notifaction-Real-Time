@@ -1,15 +1,15 @@
 ﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Notifaction.DAL.contract;
+using Notifaction.DAL.contract.Base;
 using Notifaction.DB;
 using Notifaction.Models.Bas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
-namespace Notifaction.DAL.implemntation
+
+namespace Notifaction.DAL.implemntation.Base
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseModel
     {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Notifaction.DAL.contract
+namespace Notifaction.DAL.contract.Base
 {
-    interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork : IDisposable
     {
         void Commit();
     }

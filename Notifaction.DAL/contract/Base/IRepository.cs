@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace Notifaction.DAL.contract
+namespace Notifaction.DAL.contract.Base
 {
     public interface IRepository<TEntity> where TEntity : BaseModel
     {

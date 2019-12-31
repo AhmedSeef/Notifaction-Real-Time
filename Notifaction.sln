@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifaction.DB", "Notifacti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifaction.DAL", "Notifaction.DAL\Notifaction.DAL.csproj", "{8524A216-15A3-4D43-A968-1F547525BE0D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifaction.BL", "Notifaction.BL\Notifaction.BL.csproj", "{80453D4A-DABF-41C4-BF6E-305F30AFA545}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8524A216-15A3-4D43-A968-1F547525BE0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8524A216-15A3-4D43-A968-1F547525BE0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8524A216-15A3-4D43-A968-1F547525BE0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80453D4A-DABF-41C4-BF6E-305F30AFA545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80453D4A-DABF-41C4-BF6E-305F30AFA545}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80453D4A-DABF-41C4-BF6E-305F30AFA545}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80453D4A-DABF-41C4-BF6E-305F30AFA545}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

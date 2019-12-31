@@ -1,11 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Notifaction.DAL.contract;
+using Notifaction.DAL.contract.Base;
 using Notifaction.DB;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Notifaction.DAL.implemntation
+
+namespace Notifaction.DAL.implemntation.Base
 {
     public class UnitOfWork : IUnitOfWork
     {
