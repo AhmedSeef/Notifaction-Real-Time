@@ -10,34 +10,34 @@ namespace Notifaction.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PatientController : ControllerBase
+    public class DoctorController : ControllerBase
     {
-        private readonly IPatientService _patientService;
-        public PatientController(IPatientService patientService)
+        private readonly IDoctorService _doctorService;
+        public DoctorController(IDoctorService doctorService)
         {
-            _patientService = patientService;
+            _doctorService = doctorService;
         }
-        // GET: api/Patient
+        // GET: api/Doctor
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_patientService.GetAll().ToList());
+            return Ok(_doctorService.GetAll().ToList());
         }
 
-        // GET: api/Patient/5
-        [HttpGet("{id}", Name = "GetPatient")]
+        // GET: api/Doctor/5
+        [HttpGet("{id}", Name = "GetDoctor")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST: api/Patient
+        // POST: api/Doctor
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT: api/Patient/5
+        // PUT: api/Doctor/5
         [HttpPut("Put/{id}")]
         public void Put(int id, [FromBody] string value)
         {
