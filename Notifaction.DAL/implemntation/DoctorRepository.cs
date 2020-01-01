@@ -8,11 +8,11 @@ using System.Text;
 
 namespace Notifaction.DAL.implemntation
 {
-    public class PatientRepository : Repository<Patient>, IPatientRepository
+    public class DoctorRepository : Repository<Doctor>, IDoctorRepository
     {
         private readonly DataContext _Context;
 
-        public PatientRepository(DataContext Context) : base(Context)
+        public DoctorRepository(DataContext Context) : base(Context)
         {
             _Context = Context;
         }

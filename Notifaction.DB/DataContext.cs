@@ -14,7 +14,7 @@ namespace Notifaction.DB
 
         }
 
-        public DbSet<patient> patient { get; set; }
+        public DbSet<Patient> patient { get; set; }
         public DbSet<Doctor> doctor { get; set; }
         public DbSet<Order> order { get; set; }
         public DbSet<Notification> notification { get; set; }

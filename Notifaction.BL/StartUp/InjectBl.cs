@@ -13,6 +13,9 @@ namespace Notifaction.BL.StartUp
     {
         public static void StartUp(IServiceCollection services)
         {
+            services.AddTransient<IDoctorService, DoctorService>();
+            services.AddTransient<INotificationService, NotificationService>();
+            services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IPatientService, patientService>();
         }
     }

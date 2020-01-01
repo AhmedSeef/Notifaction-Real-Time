@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Notifaction.BL.Contract
 {
-    public interface IPatientService : IService<Patient>
+    public interface IDoctorService : IService<Doctor>
     {
     }
 }

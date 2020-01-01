@@ -9,16 +9,16 @@ using System.Text;
 
 namespace Notifaction.BL.Implementation
 {
-    public class patientService : Service<Patient>, IPatientService
+    public class NotificationService : Service<Notification>, INotificationService
     {
         IUnitOfWork _unitOfWork;
-        IPatientRepository _patientRepository;
+        INotificationRepository _notificationRepository;
 
-        public patientService(IUnitOfWork unitOfWork, IPatientRepository patientRepository)
-            : base(unitOfWork, patientRepository)
+        public NotificationService(IUnitOfWork unitOfWork, INotificationRepository notificationRepository)
+            : base(unitOfWork, notificationRepository)
         {
             _unitOfWork = unitOfWork;
-            _patientRepository = patientRepository;
+            _notificationRepository = notificationRepository;
         }
     }
 }

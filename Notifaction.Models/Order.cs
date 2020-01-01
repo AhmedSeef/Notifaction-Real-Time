@@ -7,7 +7,7 @@ namespace Notifaction.Models
 {
     public class Order : BaseModel
     {
-        public patient patient { get; set; }
+        public Patient patient { get; set; }
         public string orderMessage { get; set; }
         public bool accepted { get; set; } = false;
     }

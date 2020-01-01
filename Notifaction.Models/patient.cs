@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Notifaction.Models
 {
-    public class patient : BaseModel
+    public class Patient : BaseModel
     {
         public string fName { get; set; }
         public string lName { get; set; }

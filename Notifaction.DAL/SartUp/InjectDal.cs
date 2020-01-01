@@ -14,6 +14,9 @@ namespace Notifaction.DAL.SartUp
         public static void StartUp(IServiceCollection services)
         {
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IDoctorRepository, DoctorRepository>();
+            services.AddTransient<INotificationRepository, NotificationRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IPatientRepository, PatientRepository>();
         }
     }

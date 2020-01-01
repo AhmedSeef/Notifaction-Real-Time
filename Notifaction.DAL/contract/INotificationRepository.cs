@@ -6,8 +6,7 @@ using System.Text;
 
 namespace Notifaction.DAL.contract
 {
-    public interface IPatientRepository : IRepository<Patient>
+    public interface INotificationRepository : IRepository<Notification>
     {
-
     }
 }
