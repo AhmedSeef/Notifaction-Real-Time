@@ -46,7 +46,7 @@ namespace Notifaction.DAL.implemntation.Base
             string status = "";
             try
             {
-                if (entity.Id >= 0)
+                if (entity.Id > 0)
                 {
                     _Context.Entry(entity).State = EntityState.Modified;
                     return status = "Updated";

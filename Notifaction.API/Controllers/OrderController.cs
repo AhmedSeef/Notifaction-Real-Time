@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Notifaction.API.DTO;
 using Notifaction.BL.Contract;
 using Notifaction.Models;
 
@@ -14,16 +17,18 @@ namespace Notifaction.API.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
-        public OrderController(IOrderService orderService)
+        private readonly IMapper _mapper;
+        public OrderController(IOrderService orderService, IMapper mapper)
         {
             _orderService = orderService;
+            _mapper = mapper;
         }
 
         // GET: api/Order
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_orderService.GetAll().ToList());
+            return Ok(_orderService.GetAll().Include(x => x.patient).ToList());
         }
 
         // GET: api/Order/5
@@ -31,13 +36,21 @@ namespace Notifaction.API.Controllers
         public IActionResult Get(int id)
         {
             var data = _orderService.Get(id);
-            return Ok(data);
+            if (data == null)
+            {
+                return NoContent();
+            }
+            else
+            {
+                return Ok(data);
+            }
         }
 
         // POST: api/Order
         [HttpPost]
-        public IActionResult Post([FromBody] Order value)
+        public IActionResult Post([FromBody] orderDTO orderDTO)
         {
+            var value = _mapper.Map<Order>(orderDTO);
             try
             {
                 _orderService.AddOrUpdate(value);
@@ -51,9 +64,11 @@ namespace Notifaction.API.Controllers
         }
 
         // PUT: api/Order/5
-        [HttpPut("Put/{id}")]
-        public IActionResult Put(int id, [FromBody] Order value)
+        [HttpPost("Put/{id}")]
+        public IActionResult Put(int id, [FromBody] orderDTO orderDTO)
         {
+            Order value = new Order();
+            var valuea = _mapper.Map<Order>(orderDTO);
             try
             {
                 _orderService.AddOrUpdate(value);
@@ -67,7 +82,7 @@ namespace Notifaction.API.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
-        [HttpDelete("Delete/{id}")]
+        [HttpPost("Delete/{id}")]
         public IActionResult Delete(int id)
         {
             try
