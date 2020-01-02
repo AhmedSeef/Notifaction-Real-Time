@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Notifaction.BL.Contract;
+using Notifaction.Models;
 
 namespace Notifaction.API.Controllers
 {
@@ -27,27 +28,58 @@ namespace Notifaction.API.Controllers
 
         // GET: api/Order/5
         [HttpGet("{id}", Name = "GetOrder")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            var data = _orderService.Get(id);
+            return Ok(data);
         }
 
         // POST: api/Order
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] Order value)
         {
+            try
+            {
+                _orderService.AddOrUpdate(value);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex);
+            }
         }
 
         // PUT: api/Order/5
         [HttpPut("Put/{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] Order value)
         {
+            try
+            {
+                _orderService.AddOrUpdate(value);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex);
+            }
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("Delete/{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            try
+            {
+                _orderService.Remove(id);
+                return Ok();
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
         }
     }
 }

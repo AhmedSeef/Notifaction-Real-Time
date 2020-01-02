@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Notifaction.BL.Contract;
+using Notifaction.Models;
 
 namespace Notifaction.API.Controllers
 {
@@ -26,27 +27,57 @@ namespace Notifaction.API.Controllers
 
         // GET: api/Patient/5
         [HttpGet("{id}", Name = "GetPatient")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            return Ok(_patientService.Get(id));
         }
 
         // POST: api/Patient
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] Patient value)
         {
+            try
+            {
+                _patientService.AddOrUpdate(value);
+                return Ok();
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
         }
 
         // PUT: api/Patient/5
-        [HttpPut("Put/{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPost("Put/{id}")]
+        public IActionResult Put(int id, [FromBody] Patient value)
         {
+            try
+            {
+                _patientService.AddOrUpdate(value);
+                return Ok();
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
         }
 
         // DELETE: api/ApiWithActions/5
-        [HttpDelete("Delete/{id}")]
-        public void Delete(int id)
+        [HttpPost("Delete/{id}")]
+        public IActionResult Delete(int id)
         {
+            try
+            {
+                _patientService.Remove(id);
+                return Ok();
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
         }
     }
 }
