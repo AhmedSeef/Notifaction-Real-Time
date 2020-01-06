@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Notifaction.RealTime.Models
 {
+    [Serializable]
+    [DataContract]
     public class Message
     {
         public string clientuniqueid { get; set; }

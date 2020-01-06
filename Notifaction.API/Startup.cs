@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Notifaction.API.SignalR;
 using Notifaction.BL.StartUp;
 using Notifaction.DAL.SartUp;
 using Notifaction.DB;
@@ -31,6 +32,9 @@ namespace Notifaction.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHostedService<DashboardHostedService>();
+
+            services.AddTransient<IDashboardHostedService, DashboardHostedService>();
 
             //auto mapper
             services.AddAutoMapper(typeof(Startup));
@@ -66,6 +70,8 @@ namespace Notifaction.API
                 .AllowAnyHeader().AllowAnyMethod().AllowCredentials();
             });
 
+
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -76,6 +82,7 @@ namespace Notifaction.API
             {
                 endpoints.MapControllers();
                 endpoints.MapHub<notifacationHub>("/Hubs/notifacationHub");
+                endpoints.MapHub<NotificationHub>("/SignalR/notificationHub");
             });
         }
     }

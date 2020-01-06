@@ -1,13 +1,24 @@
 import { Message } from './Models/Message';
-import { Component, NgZone } from '@angular/core';
+import { Component, NgZone, OnDestroy } from '@angular/core';
 import { NotificationsService } from './Services/NotificationsService';
+import { Subscription } from 'rxjs';
+import { SignalRServiceService } from './Services/SignalRService.service';
+import { Mess } from './Models/mess';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy  {
+   private signalRSubscription: Subscription; 
+   public content: Mess={
+  val1:"",
+  val2:"",
+  val3:"",
+  val4:""
+};
+ 
   txtMessage: string = '';
   toId:string = '';
   uniqueID: string = localStorage.getItem('conectionId');
@@ -15,9 +26,14 @@ export class AppComponent {
   message = new Message();
   constructor(
     private chatService: NotificationsService,
-    private _ngZone: NgZone
+    private _ngZone: NgZone,
+    private signalrService: SignalRServiceService
   ){
     this.subscribeToEvents();
+    this.signalRSubscription = this.signalrService.getMessage().subscribe(
+      (message) => {
+        this.content = message;
+    });
   }
 
   sendMessage(): void {
@@ -44,5 +60,10 @@ export class AppComponent {
         }
       });
     });
+  }
+
+  ngOnDestroy(): void {
+    this.signalrService.disconnect();
+    this.signalRSubscription.unsubscribe();
   }
 }

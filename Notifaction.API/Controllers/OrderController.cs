@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Notifaction.API.DTO;
 using Notifaction.BL.Contract;
 using Notifaction.Models;
+using Notifaction.RealTime.Hubs;
+using Notifaction.RealTime.Models;
 
 namespace Notifaction.API.Controllers
 {
@@ -17,6 +19,7 @@ namespace Notifaction.API.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
+        private readonly notifacationHub _notifacationHub = new notifacationHub();
         private readonly IMapper _mapper;
         public OrderController(IOrderService orderService, IMapper mapper)
         {
@@ -61,6 +64,14 @@ namespace Notifaction.API.Controllers
 
                 return BadRequest(ex);
             }
+        }
+
+        [HttpPost("AddOrder")]
+        public async Task<IActionResult> AddOrder([FromBody] Message msg)
+        {
+            await _notifacationHub.NewMessage(msg);
+
+            return Ok(msg);
         }
 
         // PUT: api/Order/5
