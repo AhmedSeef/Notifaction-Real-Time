@@ -69,7 +69,6 @@ namespace Notifaction.API.Controllers
         [HttpPost("AddOrder")]
         public async Task<IActionResult> AddOrder([FromBody] Message msg)
         {
-            await _notifacationHub.NewMessage(msg);
 
             return Ok(msg);
         }

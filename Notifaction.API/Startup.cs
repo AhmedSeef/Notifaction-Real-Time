@@ -12,11 +12,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Notifaction.API.SignalR;
+
 using Notifaction.BL.StartUp;
 using Notifaction.DAL.SartUp;
 using Notifaction.DB;
 using Notifaction.RealTime.Hubs;
+using Notifaction.RealTime.services.contract;
+using Notifaction.RealTime.services.implementation;
 
 namespace Notifaction.API
 {
@@ -82,7 +84,7 @@ namespace Notifaction.API
             {
                 endpoints.MapControllers();
                 endpoints.MapHub<notifacationHub>("/Hubs/notifacationHub");
-                endpoints.MapHub<NotificationHub>("/SignalR/notificationHub");
+                // endpoints.MapHub<NotificationHub>("/SignalR/notificationHub");
             });
         }
     }

@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DashboardHostedService.cs" />
+    <Compile Remove="DTO\Mess.cs" />
+    <Compile Remove="IDashboardHostedService.cs" />
+    <Compile Remove="SignalR\NotificationHub .cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="CouchbaseNetClient" Version="2.7.15" />
     <PackageReference Include="Microsoft.AspNet.SignalR.Core" Version="2.4.1" />
@@ -25,6 +32,10 @@
     <ProjectReference Include="..\Notifaction.DAL\Notifaction.DAL.csproj" />
     <ProjectReference Include="..\Notifaction.DB\Notifaction.DB.csproj" />
     <ProjectReference Include="..\Notifaction.RealTime\Notifaction.RealTime.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="SignalR\" />
   </ItemGroup>
 
 

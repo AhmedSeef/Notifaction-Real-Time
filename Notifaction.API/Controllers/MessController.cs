@@ -6,7 +6,8 @@ using Microsoft.AspNet.SignalR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Notifaction.API.DTO;
-using Notifaction.API.SignalR;
+using Notifaction.RealTime.DTOs;
+using Notifaction.RealTime.services.contract;
 
 namespace Notifaction.API.Controllers
 {
