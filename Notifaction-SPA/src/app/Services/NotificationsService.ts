@@ -60,12 +60,12 @@ export class NotificationsService {
   }
 
   getConnectionId(){
-    this._hubConnection.invoke('getConnectionId')
-    .then(function (connectionId) {
-      console.log(connectionId)
-        localStorage.setItem('conectionId', connectionId);
-        // Send the connectionId to controller
-    }).catch(err => console.error(err.toString()));
+    // this._hubConnection.invoke('getConnectionId')
+    // .then(function (connectionId) {
+    //   console.log(connectionId)
+    //     localStorage.setItem('conectionId', connectionId);
+    //     // Send the connectionId to controller
+    // }).catch(err => console.error(err.toString()));
   }
 
 }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Notifaction.API.DTO;
 using Notifaction.RealTime.DTOs;
+using Notifaction.RealTime.Models;
 using Notifaction.RealTime.services.contract;
 
 namespace Notifaction.API.Controllers
@@ -24,6 +25,13 @@ namespace Notifaction.API.Controllers
         public IActionResult post(Mess mess)
         {
             _dashboardHostedService.DoWork(mess);
+            return Ok();
+        }
+
+        [HttpPost("SendMs")]
+        public IActionResult SendMs(Message mess)
+        {
+            _dashboardHostedService.GetMs(mess);
             return Ok();
         }
     }

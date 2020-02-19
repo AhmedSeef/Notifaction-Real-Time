@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Notifaction.BL.Contract;
 using Notifaction.Models;
+using Notifaction.RealTime.DTOs;
+using Notifaction.RealTime.services.contract;
 
 namespace Notifaction.API.Controllers
 {
@@ -14,14 +16,20 @@ namespace Notifaction.API.Controllers
     public class PatientController : ControllerBase
     {
         private readonly IPatientService _patientService;
-        public PatientController(IPatientService patientService)
+        private readonly IDashboardHostedService _dashboardHostedService;
+        public PatientController(IPatientService patientService, IDashboardHostedService dashboardHostedService)
         {
             _patientService = patientService;
+            _dashboardHostedService = dashboardHostedService;
         }
         // GET: api/Patient
         [HttpGet]
         public IActionResult Get()
         {
+           
+            Mess mess = new Mess { val1 = "aa", val2 = "bb", val3 = "cc", val4 = "dd" };
+
+            _dashboardHostedService.DoWork(mess);
             return Ok(_patientService.GetAll().ToList());
         }
 
@@ -39,6 +47,9 @@ namespace Notifaction.API.Controllers
             try
             {
                 _patientService.AddOrUpdate(value);
+                Mess mess = new Mess { val1 = "aa", val2 = "bb", val3 = "cc", val4 = "dd" };
+
+                _dashboardHostedService.DoWork(mess);
                 return Ok();
             }
             catch (Exception)

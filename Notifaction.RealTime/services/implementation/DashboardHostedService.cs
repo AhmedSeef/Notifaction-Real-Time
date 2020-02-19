@@ -5,9 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Hosting;
 using System.Threading;
-
-
-
+using Notifaction.RealTime.Models;
 
 namespace Notifaction.RealTime.services.implementation
 {
@@ -31,6 +29,10 @@ namespace Notifaction.RealTime.services.implementation
                   });
         }
 
+        public void GetMs(Message me)
+        {
+            _hubContext.Clients.All.SendAsync("sendAllme", me);
+        }
         public Task StartAsync(CancellationToken cancellationToken)
         {
             return Task.CompletedTask;
